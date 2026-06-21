@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>了解 6686体育 | 轻量导航 · 主题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f3ef;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, serif;
+            color: #2b2b2b;
+            line-height: 1.65;
+            padding: 2rem 1.5rem;
+        }
+
+        .page-wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fdfbf8;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            padding: 2.5rem 2rem;
+        }
+
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e3dbd0;
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: -0.01em;
+            color: #3c2f23;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #5e4f40;
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #b1987c;
+        }
+
+        /* hero 区域 */
+        .hero {
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #2c1e12;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #4c3e31;
+            max-width: 80%;
+        }
+
+        @media (max-width: 600px) {
+            .hero p {
+                max-width: 100%;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* 引用块 / 提示框 */
+        .insight-box {
+            background: #efe8df;
+            padding: 1.4rem 1.8rem;
+            border-radius: 20px;
+            margin: 2rem 0 2.5rem 0;
+            border-left: 6px solid #9b846b;
+            font-style: normal;
+        }
+
+        .insight-box strong {
+            color: #3a2c1e;
+        }
+
+        /* 三场景卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+
+        @media (max-width: 720px) {
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .scene-card {
+            background: #ffffff;
+            border: 1px solid #e6ddd2;
+            border-radius: 24px;
+            padding: 1.6rem 1.4rem 1.8rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        .scene-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: #3b2c1c;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #4f4236;
+        }
+
+        .scene-card .card-tag {
+            display: inline-block;
+            background: #ede7de;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #564536;
+            margin-top: 0.8rem;
+        }
+
+        /* 常见说明 (FAQ摘要) */
+        .faq-summary {
+            background: #f4efe8;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2e2116;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.9rem;
+        }
+
+        .faq-item strong {
+            color: #3c2d1e;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+
+        .faq-item p {
+            display: inline;
+            color: #4f4133;
+        }
+
+        .faq-item + .faq-item {
+            border-top: 1px dashed #d6cbbc;
+            padding-top: 0.9rem;
+        }
+
+        .link-sentence {
+            margin-top: 2.2rem;
+            padding: 1.2rem 0 0.2rem;
+            font-size: 1rem;
+            border-top: 1px solid #e2d7ca;
+        }
+
+        .link-sentence a {
+            color: #6f5a42;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-color: #cbb7a1;
+            font-weight: 500;
+        }
+
+        .link-sentence a:hover {
+            color: #3a2a1a;
+            text-decoration-color: #7f674d;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #8a7b6b;
+            text-align: center;
+            border-top: 1px solid #e7ddd0;
+            padding-top: 1.8rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7ddd0;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- 顶部导航 轻量结构 -->
+    <nav class="top-nav">
+        <span class="brand">6686·导航</span>
+        <div class="nav-links">
+            <a href="#">主题</a>
+            <a href="#">场景</a>
+            <a href="#">简述</a>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 -->
+    <div class="hero">
+        <h1>6686体育 · 主题脉络</h1>
+        <p>从运动资讯聚合到赛事观察，我们梳理信息背后常见的服务方向。这里不提供结论，而是尝试搭建一个理解框架。</p>
+    </div>
+
+    <!-- 提示框 / 引用块 知识型语气 -->
+    <div class="insight-box">
+        <strong>一种视角</strong> —— 体育爱好者在获取比赛数据、动态以及项目介绍时，往往面对大量碎片信息。<br>
+        平衡信息的密度与可读性，是许多内容平台持续调整的方向。<br>
+        <span style="display:inline-block; margin-top:0.5rem;">· 从聚合到筛选，从展示到索引，每一步都影响认知效率。</span>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>实时赛况</h3>
+            <p>比分、赛程、回合统计，关键节点即时更新。对于关注进度而非全程直播的用户，轻量化的赛况摘要更能节省注意力。</p>
+            <span class="card-tag">信息密度</span>
+        </div>
+        <div class="scene-card">
+            <h3>项目档案</h3>
+            <p>规则、历史、队伍构成。每个体育项目背后都有独特的文化背景与赛制演变，简明档案有助于快速建立认知基线。</p>
+            <span class="card-tag">背景补充</span>
+        </div>
+        <div class="scene-card">
+            <h3>趋势观察</h3>
+            <p>热门联赛、球员动态、赛事变动。从数据波动中提炼现象，不做过分解读，仅呈现可验证的变动线索。</p>
+            <span class="card-tag">变动追踪</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 FAQ 摘要风格 -->
+    <div class="faq-summary">
+        <h2>常见说明 · 摘要</h2>
+        <div class="faq-item">
+            <strong>内容定位：</strong>
+            <p>侧重结构化的体育信息索引，不包含竞猜、投注或博彩导向。</p>
+        </div>
+        <div class="faq-item">
+            <strong>数据来源：</strong>
+            <p>整合公开赛事数据与项目资料，不提供未经核实或主观预测内容。</p>
+        </div>
+        <div class="faq-item">
+            <strong>使用场景：</strong>
+            <p>适合快速了解体育项目概况、赛程节点及背景资料，辅助信息整理。</p>
+        </div>
+        <div class="faq-item" style="margin-bottom:0;">
+            <strong>关于平台：</strong>
+            <p>页面所涉服务由相关体育信息方提供，本页仅作介绍与导航。</p>
+        </div>
+    </div>
+
+    <!-- 关键链接 自然嵌入句子 不可更改文本 -->
+    <div class="link-sentence">
+        若希望进一步探索体育资讯，可参考 <a href="https://web-6686sports.com">6686体育</a> 提供的内容索引与动态整合。
+    </div>
+
+    <!-- 一点补充（过渡承接） -->
+    <p style="margin: 1.5rem 0 0.5rem; color: #5b4c3b; font-size: 0.95rem;">
+        体育信息的价值在于准确与及时。通过分类导航，不同关注点的用户都能更快找到自己需要的段落。
+    </p>
+
+    <hr>
+
+    <div class="footer-note">
+        <span>主题介绍页 · 轻量导航结构 &nbsp;|&nbsp; 内容方向：知识梳理与场景示意</span>
+    </div>
+</div>
+</body>
+</html>
