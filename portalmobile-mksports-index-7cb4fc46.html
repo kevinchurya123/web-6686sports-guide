@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>站点介绍 · MK体育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fafafa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e1e2a;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 1.2rem 1.5rem 4rem;
+    }
+
+    /* 顶部导航 — 极简留白 */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0 3rem;
+      border-bottom: 1px solid #eaeef2;
+    }
+
+    .nav-brand {
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      color: #3b3b4a;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4a4a5a;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: #0f0f1f;
+    }
+
+    /* hero 区域 */
+    .hero {
+      margin: 2.8rem 0 3.2rem;
+    }
+
+    .hero h1 {
+      font-size: 1.85rem;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #14141f;
+      margin-bottom: 1.4rem;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: #3a3a4a;
+      max-width: 640px;
+    }
+
+    .hero p a {
+      color: #1e1e2a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #b8c4ce;
+      font-weight: 500;
+    }
+
+    .hero p a:hover {
+      text-decoration-color: #14141f;
+    }
+
+    /* 通用标题层级 */
+    .section-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 2.8rem 0 1rem;
+      color: #1a1a2a;
+      letter-spacing: -0.2px;
+      border-left: 3px solid #d0d8e0;
+      padding-left: 1rem;
+    }
+
+    /* 三个场景模块 — 卡片风格 极简微阴影 */
+    .scenes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.6rem 0 1.2rem;
+    }
+
+    .scene-card {
+      flex: 1 1 200px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.6rem 1.4rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 0 0 1px #f0f2f5;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04), 0 0 0 1px #dde2e8;
+    }
+
+    .scene-card h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      color: #1c1c2a;
+    }
+
+    .scene-card p {
+      font-size: 0.88rem;
+      color: #4c4c5a;
+      line-height: 1.6;
+    }
+
+    /* 常见说明 (FAQ 摘要) 紧凑 */
+    .faq-list {
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eceef1;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1e1e2a;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-answer {
+      font-size: 0.88rem;
+      color: #4b4b5a;
+      line-height: 1.6;
+    }
+
+    .faq-answer a {
+      color: #1e1e2a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #cbd2da;
+    }
+
+    .faq-answer a:hover {
+      text-decoration-color: #14141f;
+    }
+
+    /* 引用说明 小巧可信 */
+    .note-box {
+      background: #f4f6f8;
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin: 2.8rem 0 2rem;
+      font-size: 0.88rem;
+      color: #3a3a4a;
+      line-height: 1.7;
+    }
+
+    .note-box strong {
+      font-weight: 500;
+      color: #1c1c2a;
+    }
+
+    /* 页脚 */
+    .footer {
+      margin-top: 3.5rem;
+      font-size: 0.78rem;
+      color: #8a8a9a;
+      border-top: 1px solid #e8ecf0;
+      padding-top: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer a {
+      color: #6a6a7a;
+      text-decoration: none;
+      border-bottom: 1px solid #dee2e8;
+    }
+
+    .footer a:hover {
+      color: #1e1e2a;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      .page {
+        padding: 0.6rem 1rem 3rem;
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+        padding-bottom: 2rem;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem 1.4rem;
+      }
+      .hero h1 {
+        font-size: 1.55rem;
+      }
+      .scenes-grid {
+        flex-direction: column;
+      }
+      .scene-card {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="nav">
+    <span class="nav-brand">portalmobile-mksports</span>
+    <ul class="nav-links">
+      <li><a href="#">介绍</a></li>
+      <li><a href="#">场景</a></li>
+      <li><a href="#">说明</a></li>
+    </ul>
+  </nav>
+
+  <!-- hero 核心介绍 -->
+  <div class="hero">
+    <h1>站点介绍：<br>关于 MK体育 的定位与可信说明</h1>
+    <p>
+      <a href="https://portalmobile-mksports.com">MK体育</a> 是一个以信息展示与访问引导为主的中立性页面。本页不提供任何赛事投注、资金交易或实时数据服务，仅作为了解该站点基本用途的入口介绍。以下从场景与常见问题两个角度提供客观参考，帮助访问者快速建立认知。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <h2 class="section-title">典型使用场景</h2>
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <h3>信息确认</h3>
+      <p>当用户通过推荐、搜索或链接到达时，可在此页面确认站点名称、用途与基本属性，避免误访问无关资源。</p>
+    </div>
+    <div class="scene-card">
+      <h3>渠道预览</h3>
+      <p>部分合作伙伴或内容引用方可将此页作为跳转前的预览页，帮助受众提前了解目标站点的定位与范畴。</p>
+    </div>
+    <div class="scene-card">
+      <h3>轻量导航</h3>
+      <p>在移动设备或网络环境受限时，用户可通过简介与常见说明快速判断是否继续浏览主站内容，减少等待成本。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <h2 class="section-title">常见说明</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">MK体育 是什么类型的站点？</div>
+      <div class="faq-answer">该域名指向一个以体育相关内容为背景的门户型页面，主要提供入口引导与信息展示功能。具体服务请以主站实际内容为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">访问前需要做哪些准备？</div>
+      <div class="faq-answer">本页无需注册或下载。若继续使用主站功能，建议根据当地法律及平台条款自行判断。对于任何涉及资金或个人信息的操作，请保持谨慎。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">如何确认站点的可靠性？</div>
+      <div class="faq-answer">建议通过多个独立来源交叉验证站点背景。本页仅作为客观说明，不构成担保。如需进一步了解，可参考 <a href="https://portalmobile-mksports.com">MK体育</a> 主站上的公开信息。</div>
+    </div>
+  </div>
+
+  <!-- 可信说明 & 提示 -->
+  <div class="note-box">
+    <strong>可信说明：</strong> 本介绍页与主站 <a href="https://portalmobile-mksports.com" style="text-decoration: underline; text-underline-offset: 2px; color: #1e1e2a;">MK体育</a> 相互独立，仅提供站点背景介绍和使用提示。所有描述均基于公开可查的信息，不包含任何形式的成绩承诺、诱导分享或违法内容。访问者应结合自身判断与当地法规做出合理决策。
+  </div>
+
+  <!-- 页脚 -->
+  <div class="footer">
+    <span>© 介绍页 · 仅供参考</span>
+    <span><a href="https://portalmobile-mksports.com">MK体育</a> · 主站</span>
+  </div>
+
+</div>
+</body>
+</html>
