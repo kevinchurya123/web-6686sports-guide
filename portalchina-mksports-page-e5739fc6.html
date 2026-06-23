@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MK体育 – 日常赛事查询与延伸阅读工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f4f2ec;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: #1e1e1a;
+        }
+        .hero {
+            background: linear-gradient(145deg, #0c1a2b 0%, #162c42 60%, #1e3b52 100%);
+            color: #ede9dd;
+            padding: 3.2rem 1.8rem 2.8rem;
+            text-align: center;
+            border-bottom: 2px solid #c7a46f;
+        }
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0.8rem auto 0;
+        }
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 2.2rem 1.6rem 3rem;
+        }
+        .summary {
+            background: white;
+            padding: 2rem 2rem 2rem 2.5rem;
+            border-radius: 28px 8px 28px 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+            margin-bottom: 2.6rem;
+            border-left: 4px solid #c7a46f;
+        }
+        .summary p {
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .summary strong {
+            color: #173b4d;
+        }
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2.2rem 0 2.8rem;
+        }
+        .highlight-card {
+            background: white;
+            flex: 1 1 200px;
+            padding: 1.8rem 1.2rem 1.6rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.15s, box-shadow 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        .highlight-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-bottom-color: #c7a46f;
+        }
+        .highlight-card h3 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #1d3747;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.3px;
+        }
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #2a2a28;
+            opacity: 0.8;
+        }
+        .usage-note {
+            background: #eae7df;
+            padding: 1.6rem 2rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2rem 0 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1.2rem 2rem;
+        }
+        .usage-note .label {
+            font-weight: 500;
+            color: #1a2e3c;
+            background: #d6cfbf;
+            padding: 0.1rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+        }
+        .usage-note .content {
+            flex: 1;
+            min-width: 200px;
+        }
+        .usage-note p {
+            margin-bottom: 0.4rem;
+        }
+        .faq-mini {
+            margin: 2.8rem 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem 2rem;
+        }
+        .faq-item {
+            border-bottom: 1px dashed #cbc4b6;
+            padding-bottom: 0.8rem;
+        }
+        .faq-item h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #173b4d;
+            margin-bottom: 0.2rem;
+        }
+        .faq-item p {
+            font-size: 0.9rem;
+            color: #3f3f3a;
+        }
+        .cta-sentence {
+            background: #e2ded3;
+            padding: 1.4rem 2rem;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 2.2rem 0 0.5rem;
+            border: 1px solid #c7b9a2;
+        }
+        .cta-sentence a {
+            color: #133d54;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b2987c;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .cta-sentence a:hover {
+            color: #4e3822;
+            border-bottom-color: #826e54;
+        }
+        .footnote {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #5f5b52;
+            text-align: center;
+            border-top: 1px solid #d8d0c2;
+            padding-top: 2rem;
+        }
+        @media (max-width: 640px) {
+            .hero { padding: 2rem 1rem 1.8rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .faq-mini { grid-template-columns: 1fr; gap: 1rem; }
+            .usage-note { flex-direction: column; }
+            .highlight-grid { gap: 1rem; }
+            .cta-sentence { font-size: 1rem; padding: 1rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>MK体育 · 赛事信息对照</h1>
+        <div class="sub">日常查询、数据对照与背景延伸，一个更安静的阅读入口</div>
+    </header>
+
+    <div class="container">
+        <section class="summary">
+            <p>如果你只是想在某个下午快速确认比赛时间、翻看近期对阵，或者对某项运动的规则演变产生了一点好奇——<strong>MK体育</strong> 提供了一种不带干扰的浏览方式。页面结构偏向文字与表格，没有自动播放的流媒体弹窗，也不强制推送热点资讯。你完全可以把它当作一本随时摊开的赛事手册，按自己的节奏翻阅。</p>
+            <p>对于经常需要横向对比不同联赛数据的人来说，这种克制反而更高效。比如同时查看西甲与德甲的下轮赛程，或者在亚冠与欧冠的小组形势之间来回切换，页面布局不会因为频繁跳转而重新加载恼人的广告位。</p>
+        </section>
+
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <h3>对照更直观</h3>
+                <p>多个联赛的积分、交锋记录并排展示，适合做简单数据对比或趋势观察。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>延伸有线索</h3>
+                <p>每项赛事下方附带相关的历史背景、规则简析或赛季回顾，满足偶然的好奇心。</p>
+            </div>
+            <div class="highlight-card">
+                <h3>节奏自控</h3>
+                <p>没有时间轴推动，不设自动刷新，你决定什么时候翻开、什么时候合上。</p>
+            </div>
+        </div>
+
+        <div class="usage-note">
+            <span class="label">使用建议</span>
+            <div class="content">
+                <p>• 把 <strong>MK体育</strong> 当作你的「赛程备忘录」—— 早上通勤时扫一眼晚上比赛的预计首发，比刷社交网络更省电量。<br>
+                • 周末想选一场冷门联赛看，可以按地区筛选，再阅读一段背景介绍帮助进入状态。<br>
+                • 遇到不熟悉的术语，页面自带的简短注解通常能解答七八成疑问。</p>
+            </div>
+        </div>
+
+        <div class="faq-mini">
+            <div class="faq-item">
+                <h4>数据更新频率？</h4>
+                <p>主要赛程和结果通常延迟不超过一小时。次级联赛或杯赛可能稍慢，一般会在当天内完成更新。</p>
+            </div>
+            <div class="faq-item">
+                <h4>需要注册才能看吗？</h4>
+                <p>不用。所有公开赛程、积分和文章都直接可见，不设置阅读门槛。</p>
+            </div>
+            <div class="faq-item">
+                <h4>移动端体验如何？</h4>
+                <p>页面针对手机做了纵向适配，表格会自动折行，单手操作比较顺畅。</p>
+            </div>
+            <div class="faq-item">
+                <h4>内容偏向哪些运动？</h4>
+                <p>足球、篮球、网球占大部分，但也涉及美式橄榄球、电竞及小众项目，按赛季轮换呈现。</p>
+            </div>
+        </div>
+
+        <div class="cta-sentence">
+            如果你需要一个安静、不追热点的赛事信息源，不妨试试 <a href="https://portalchina-mksports.com">MK体育</a> —— 从一场比赛开始，慢慢延伸出更完整的画面。
+        </div>
+
+        <div class="footnote">
+            <span>不收集浏览行为，不推送个性化广告 · 适合在碎片时间里做一次有准备的数据查阅</span>
+        </div>
+    </div>
+</body>
+</html>
